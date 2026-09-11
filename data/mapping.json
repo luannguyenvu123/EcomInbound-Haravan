@@ -1,0 +1,598 @@
+[
+  {
+    "Child": "3NBDGHDDC001N",
+    "Parent": "1NBDGVFDC31N"
+  },
+  {
+    "Child": "1NBDGVFDC33N",
+    "Parent": "1NBDGVFDC31N"
+  },
+  {
+    "Child": "3NBDGHPDC01N",
+    "Parent": "1NBDGVFDC31N"
+  },
+  {
+    "Child": "3NBDGHPDC004N",
+    "Parent": "1NBDGVFDC31N"
+  },
+  {
+    "Child": "1NBDGVFDC31N",
+    "Parent": "1NBDGVFDC31N"
+  },
+  {
+    "Child": "3NBUGHDBH001N",
+    "Parent": "1NBUGVFBH29N"
+  },
+  {
+    "Child": "1NBUGVFBH29N",
+    "Parent": "1NBUGVFBH29N"
+  },
+  {
+    "Child": "3NBUGHDRC001N",
+    "Parent": "1NBUGVFRC48N"
+  },
+  {
+    "Child": "1NBUGVFRC48N",
+    "Parent": "1NBUGVFRC48N"
+  },
+  {
+    "Child": "3NCHGHDTB50DC",
+    "Parent": "1NCHGVFTB50DC"
+  },
+  {
+    "Child": "1NCHGVFTB50DC",
+    "Parent": "1NCHGVFTB50DC"
+  },
+  {
+    "Child": "3NBDKHGDC01N",
+    "Parent": "1NBDGHGDC16N"
+  },
+  {
+    "Child": "1NBDGHGDC16N",
+    "Parent": "1NBDGHGDC16N"
+  },
+  {
+    "Child": "3NMIGHDBCTT02N",
+    "Parent": "1NMIGVFBCTT01N"
+  },
+  {
+    "Child": "1NMIGVFBCTT01N",
+    "Parent": "1NMIGVFBCTT01N"
+  },
+  {
+    "Child": "3NMIGHDRC02N",
+    "Parent": "1NMIGVFRC01N"
+  },
+  {
+    "Child": "1NMIGVFRC01N",
+    "Parent": "1NMIGVFRC01N"
+  },
+  {
+    "Child": "3NMIGHDTHTT02N",
+    "Parent": "1NMIGVFTHTT01N"
+  },
+  {
+    "Child": "1NMIGVFTHTT01N",
+    "Parent": "1NMIGVFTHTT01N"
+  },
+  {
+    "Child": "3NMIGHPTE01N",
+    "Parent": "1NMIGVFTE13N"
+  },
+  {
+    "Child": "1NMIGVFTE13N",
+    "Parent": "1NMIGVFTE13N"
+  },
+  {
+    "Child": "3NPHGHPBO002N",
+    "Parent": "1NPHGVFVB05N"
+  },
+  {
+    "Child": "1NPHGVFVB05N",
+    "Parent": "1NPHGVFVB05N"
+  },
+  {
+    "Child": "3NPHGHPGA001N",
+    "Parent": "1NPHGVFVG05N"
+  },
+  {
+    "Child": "1NPHGVFVG05N",
+    "Parent": "1NPHGVFVG05N"
+  },
+  {
+    "Child": "3NPHGHDGA006N",
+    "Parent": "1NPHGVFGA105N"
+  },
+  {
+    "Child": "3NPHGHPGA012N",
+    "Parent": "1NPHGVFGA105N"
+  },
+  {
+    "Child": "1NPHGVFGA105N",
+    "Parent": "1NPHGVFGA105N"
+  },
+  {
+    "Child": "3NPHGHDBO010N",
+    "Parent": "1NPHGVFBO106N"
+  },
+  {
+    "Child": "1NPHGVFBO106N",
+    "Parent": "1NPHGVFBO106N"
+  },
+  {
+    "Child": "3NMIGHPNVT01N",
+    "Parent": "1NMIGVFNVT01N"
+  },
+  {
+    "Child": "1NMIGVFNVT01N",
+    "Parent": "1NMIGVFNVT01N"
+  },
+  {
+    "Child": "3NBUGHPBHTT001N",
+    "Parent": "1NBUGVFBHTT01N"
+  },
+  {
+    "Child": "1NBUGVFBHTT01N",
+    "Parent": "1NBUGVFBHTT01N"
+  },
+  {
+    "Child": "3NBUGHPSCTT001N",
+    "Parent": "1NBUGVFSCTT01N"
+  },
+  {
+    "Child": "1NBUGVFSCTT01N",
+    "Parent": "1NBUGVFSCTT01N"
+  },
+  {
+    "Child": "3NMIGHDCRN01N",
+    "Parent": "1NMIGVFCH25N"
+  },
+  {
+    "Child": "1NMIGVFCH25N",
+    "Parent": "1NMIGVFCH25N"
+  },
+  {
+    "Child": "3NMIGHPMTTT01N",
+    "Parent": "1NMIGMTRON07N"
+  },
+  {
+    "Child": "3NMIGHPMTTT02N",
+    "Parent": "1NMIGMTRON07N"
+  },
+  {
+    "Child": "3NMIGHPMTTT03N",
+    "Parent": "1NMIGMTRON07N"
+  },
+  {
+    "Child": "1NMIGMTRON06N",
+    "Parent": "1NMIGMTRON07N"
+  },
+  {
+    "Child": "1NMIGMTRON07N",
+    "Parent": "1NMIGMTRON07N"
+  },
+  {
+    "Child": "3NMIGHPTTGC01N",
+    "Parent": "1NMIGVFTTGC02N"
+  },
+  {
+    "Child": "3NMIGHPTTGC02N",
+    "Parent": "1NMIGVFTTGC02N"
+  },
+  {
+    "Child": "3NMIGHPTTGC03N",
+    "Parent": "1NMIGVFTTGC02N"
+  },
+  {
+    "Child": "1NMIGVFTTGC01N",
+    "Parent": "1NMIGVFTTGC02N"
+  },
+  {
+    "Child": "1NMIGVFTTGC02N",
+    "Parent": "1NMIGVFTTGC02N"
+  },
+  {
+    "Child": "3NMIGHPTTSC01N",
+    "Parent": "1NMIGVFTTSC02N"
+  },
+  {
+    "Child": "1NMIGVFTTSC01N",
+    "Parent": "1NMIGVFTTSC02N"
+  },
+  {
+    "Child": "3NMIGHPTTSC02N",
+    "Parent": "1NMIGVFTTSC02N"
+  },
+  {
+    "Child": "3NMIGHPTTSC03N",
+    "Parent": "1NMIGVFTTSC02N"
+  },
+  {
+    "Child": "1NMIGVFTTSC02N",
+    "Parent": "1NMIGVFTTSC02N"
+  },
+  {
+    "Child": "3NMIGHPNVG01N",
+    "Parent": "1NMIGVFNVG01N"
+  },
+  {
+    "Child": "1NMIGVFNVG01N",
+    "Parent": "1NMIGVFNVG01N"
+  },
+  {
+    "Child": "3NPHGHDCH002N",
+    "Parent": "1NPHGVFNC32N"
+  },
+  {
+    "Child": "1NPHGVFNC32N",
+    "Parent": "1NPHGVFNC32N"
+  },
+  {
+    "Child": "1NBDGVFDT02N",
+    "Parent": "1NBDGVFDT01N"
+  },
+  {
+    "Child": "3NBDGHPDT02N",
+    "Parent": "1NBDGVFDT01N"
+  },
+  {
+    "Child": "3NBDGHPDT01N",
+    "Parent": "1NBDGVFDT01N"
+  },
+  {
+    "Child": "1NBDGVFDT01N",
+    "Parent": "1NBDGVFDT01N"
+  },
+  {
+    "Child": "1NMIGTUBXV02N",
+    "Parent": "1NMIGTUBXV01N"
+  },
+  {
+    "Child": "1NMIGTUBXV03N",
+    "Parent": "1NMIGTUBXV01N"
+  },
+  {
+    "Child": "1NMIGTUBXV01N",
+    "Parent": "1NMIGTUBXV01N"
+  },
+  {
+    "Child": "1NMIGTUTB02N",
+    "Parent": "1NMIGTUTB01N"
+  },
+  {
+    "Child": "1NMIGTUTB01N",
+    "Parent": "1NMIGTUTB01N"
+  },
+  {
+    "Child": "1NMIGTUTCC02N",
+    "Parent": "1NMIGTUTCC01N"
+  },
+  {
+    "Child": "1NMIGTUTCC01N",
+    "Parent": "1NMIGTUTCC01N"
+  },
+  {
+    "Child": "1NMIGVFBN04N",
+    "Parent": "1NMIGVFBN03N"
+  },
+  {
+    "Child": "1NMIGVFBN03N",
+    "Parent": "1NMIGVFBN03N"
+  },
+  {
+    "Child": "1NMIGVFHS04N",
+    "Parent": "1NMIGVFHS03N"
+  },
+  {
+    "Child": "1NMIGVFHS03N",
+    "Parent": "1NMIGVFHS03N"
+  },
+  {
+    "Child": "1NMIGVFPM04N",
+    "Parent": "1NMIGVFPM03N"
+  },
+  {
+    "Child": "1NMIGVFPM03N",
+    "Parent": "1NMIGVFPM03N"
+  },
+  {
+    "Child": "1NMITVFBCTT02N",
+    "Parent": "1NMITVFBCTT01N"
+  },
+  {
+    "Child": "1NMITVFBCTT01N",
+    "Parent": "1NMITVFBCTT01N"
+  },
+  {
+    "Child": "1NMITVFRCT02N",
+    "Parent": "1NMITVFRCT01N"
+  },
+  {
+    "Child": "1NMITVFRCT01N",
+    "Parent": "1NMITVFRCT01N"
+  },
+  {
+    "Child": "1NMITVFTHS02N",
+    "Parent": "1NMITVFTHS01N"
+  },
+  {
+    "Child": "3NMITHPTHS01N",
+    "Parent": "1NMITVFTHS01N"
+  },
+  {
+    "Child": "3NMITHPTHS02N",
+    "Parent": "1NMITVFTHS01N"
+  },
+  {
+    "Child": "1NMITVFTHS01N",
+    "Parent": "1NMITVFTHS01N"
+  },
+  {
+    "Child": "1NMITVFTHTT02N",
+    "Parent": "1NMITVFTHTT01N"
+  },
+  {
+    "Child": "1NMITVFTHTT01N",
+    "Parent": "1NMITVFTHTT01N"
+  },
+  {
+    "Child": "1NMITVFTNVC02N",
+    "Parent": "1NMITVFTNVC01N"
+  },
+  {
+    "Child": "3NMITHPTNVC02N",
+    "Parent": "1NMITVFTNVC01N"
+  },
+  {
+    "Child": "3NMITHPTNVC01N",
+    "Parent": "1NMITVFTNVC01N"
+  },
+  {
+    "Child": "1NMITVFTNVC01N",
+    "Parent": "1NMITVFTNVC01N"
+  },
+  {
+    "Child": "1NMITVFTNVG02N",
+    "Parent": "1NMITVFTNVG01N"
+  },
+  {
+    "Child": "3NMITHPTNVG02N",
+    "Parent": "1NMITVFTNVG01N"
+  },
+  {
+    "Child": "3NMITHPTNVG01N",
+    "Parent": "1NMITVFTNVG01N"
+  },
+  {
+    "Child": "1NMITVFTNVG01N",
+    "Parent": "1NMITVFTNVG01N"
+  },
+  {
+    "Child": "1NMITVFTS02N",
+    "Parent": "1NMITVFTS01N"
+  },
+  {
+    "Child": "3NMITHPTS01N",
+    "Parent": "1NMITVFTS01N"
+  },
+  {
+    "Child": "3NMITHPTS02N",
+    "Parent": "1NMITVFTS01N"
+  },
+  {
+    "Child": "1NMITVFTS01N",
+    "Parent": "1NMITVFTS01N"
+  },
+  {
+    "Child": "1NMITVFTTD02N",
+    "Parent": "1NMITVFTTD01N"
+  },
+  {
+    "Child": "3NMITHPTTD01N",
+    "Parent": "1NMITVFTTD01N"
+  },
+  {
+    "Child": "3NMITHPTTD02N",
+    "Parent": "1NMITVFTTD01N"
+  },
+  {
+    "Child": "1NMITVFTTD01N",
+    "Parent": "1NMITVFTTD01N"
+  },
+  {
+    "Child": "1NMNGVFLT65N",
+    "Parent": "1NMNGVFLT60N"
+  },
+  {
+    "Child": "1NMNGVFLT60N",
+    "Parent": "1NMNGVFLT60N"
+  },
+  {
+    "Child": "1NMNGVFMA63N",
+    "Parent": "1NMNGVFMA58N"
+  },
+  {
+    "Child": "1NMNGVFMA581N",
+    "Parent": "1NMNGVFMA58N"
+  },
+  {
+    "Child": "1NMNGVFMA58N",
+    "Parent": "1NMNGVFMA58N"
+  },
+  {
+    "Child": "1NMNGVFSU65N",
+    "Parent": "1NMNGVFSU58N"
+  },
+  {
+    "Child": "1NMNGVFSU58N",
+    "Parent": "1NMNGVFSU58N"
+  },
+  {
+    "Child": "3NHTGHPNVTT01N",
+    "Parent": "1NHTGVFNVTT01N"
+  },
+  {
+    "Child": "1NHTGVFNVTT01N",
+    "Parent": "1NHTGVFNVTT01N"
+  },
+  {
+    "Child": "3NHTGHPSHTT01N",
+    "Parent": "1NHTGVFSHTT01N"
+  },
+  {
+    "Child": "1NHTGVFSHTT01N",
+    "Parent": "1NHTGVFSHTT01N"
+  },
+  {
+    "Child": "3NMIGHDCLT01N",
+    "Parent": "1NMIGVFCLT01N"
+  },
+  {
+    "Child": "1NMIGVFCLT01N",
+    "Parent": "1NMIGVFCLT01N"
+  },
+  {
+    "Child": "3NBDGHPDCT01N",
+    "Parent": "1NBDGVFDCT01N"
+  },
+  {
+    "Child": "1NBDGVFDCT01N",
+    "Parent": "1NBDGVFDCT01N"
+  },
+  {
+    "Child": "3NBDGHPTHS01N",
+    "Parent": "1NBDGVFTHS01N"
+  },
+  {
+    "Child": "1NBDGVFTHS01N",
+    "Parent": "1NBDGVFTHS01N"
+  },
+  {
+    "Child": "3NHTGHPNV01N",
+    "Parent": "1NHTGVFNV41N"
+  },
+  {
+    "Child": "1NHTGVFNV41N",
+    "Parent": "1NHTGVFNV41N"
+  },
+  {
+    "Child": "3NMIGHDGT01N",
+    "Parent": "1NMIGVFGT92N"
+  },
+  {
+    "Child": "1NMIGVFGT92N",
+    "Parent": "1NMIGVFGT92N"
+  },
+  {
+    "Child": "3NCHGHDTB001N",
+    "Parent": "1NCHGVFTB44N"
+  },
+  {
+    "Child": "1NCHGVFTB44N",
+    "Parent": "1NCHGVFTB44N"
+  },
+  {
+    "Child": "3NPHTHPBO001N",
+    "Parent": "1NPHTVFTB02N"
+  },
+  {
+    "Child": "1NPHTVFTB02N",
+    "Parent": "1NPHTVFTB02N"
+  },
+  {
+    "Child": "3NPHKHGTB01N",
+    "Parent": "1NPHKHGTB01N"
+  },
+  {
+    "Child": "1NPHKHGTB01N",
+    "Parent": "1NPHKHGTB01N"
+  },
+  {
+    "Child": "3NPHKHGTG01N",
+    "Parent": "1NPHKHGTG01N"
+  },
+  {
+    "Child": "1NPHKHGTG01N",
+    "Parent": "1NPHKHGTG01N"
+  },
+  {
+    "Child": "3NBCGHD14003N",
+    "Parent": "1NBCGVF1433N"
+  },
+  {
+    "Child": "1NBCGVF1433N",
+    "Parent": "1NBCGVF1433N"
+  },
+  {
+    "Child": "3NCHGHDSU001N",
+    "Parent": "1NCHGVFSU02N"
+  },
+  {
+    "Child": "1NCHGVFSU02N",
+    "Parent": "1NCHGVFSU02N"
+  },
+  {
+    "Child": "3NCHGHDTG001N",
+    "Parent": "1NCHGVFTG44N"
+  },
+  {
+    "Child": "1NCHGVFTG44N",
+    "Parent": "1NCHGVFTG44N"
+  },
+  {
+    "Child": "3NPHGHDBO019N",
+    "Parent": "1NPHGVFBTT01N"
+  },
+  {
+    "Child": "1NPHGVFBTT01N",
+    "Parent": "1NPHGVFBTT01N"
+  },
+  {
+    "Child": "3NBUGHDBG001N",
+    "Parent": "1NBUGVFGI25N"
+  },
+  {
+    "Child": "1NBUGVFGI25N",
+    "Parent": "1NBUGVFGI25N"
+  },
+  {
+    "Child": "3NCHGHDGA50DC",
+    "Parent": "1NCHGVFGA50DC"
+  },
+  {
+    "Child": "1NCHGVFGA50DC",
+    "Parent": "1NCHGVFGA50DC"
+  },
+  {
+    "Child": "3NPHGHDGA011N",
+    "Parent": "1NPHGVFGTT02N"
+  },
+  {
+    "Child": "1NPHGVFGTT02N",
+    "Parent": "1NPHGVFGTT02N"
+  },
+  {
+    "Child": "3NPHTHPGA001N",
+    "Parent": "1NPHTVFTG02N"
+  },
+  {
+    "Child": "1NPHTVFTG02N",
+    "Parent": "1NPHTVFTG02N"
+  },
+  {
+    "Child": "3NMIKHPXTD01N",
+    "Parent": "1NMIKVFXTD01N"
+  },
+  {
+    "Child": "1NMIKVFXTD01N",
+    "Parent": "1NMIKVFXTD01N"
+  },
+  {
+    "Child": "1NMITHGKC02N",
+    "Parent": "1NMITHGKC01N"
+  },
+  {
+    "Child": "1NMITHGKC01N",
+    "Parent": "1NMITHGKC01N"
+  }
+]

@@ -1,0 +1,7 @@
+[
+  { "Id": 1, "Code": "TNSL_TIGER2", "Name": "TikiNow MB" },
+  { "Id": 2, "Code": "SWB CT", "Name": "SwiftHub Cần Thơ" },
+  { "Id": 3, "Code": "SWB HN", "Name": "SwiftHub Hà Nội" },
+  { "Id": 4, "Code": "SWB MN", "Name": "SwiftHub MN" },
+  { "Id": 5, "Code": "BAS", "Name": "Baspro" }
+]
