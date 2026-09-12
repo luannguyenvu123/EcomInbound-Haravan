@@ -233,6 +233,20 @@
                     </div>
                     <div class="card-body">
                         <form action="/process" method="post" enctype="multipart/form-data" id="processForm">
+                            <!-- Warehouse Selection -->
+                            <div class="warehouse-select mb-4">
+                                <div class="warehouse-label">
+                                    <i class="bi bi-building"></i>
+                                    Chọn kho xuất hàng
+                                </div>
+                                <select name="warehouseId" class="form-select" required id="warehouseSelect">
+                                    <option value="">-- Chọn kho --</option>
+                                    <% warehouses.forEach(function(wh) { %>
+                                        <option value="<%= wh.Id %>"><%= wh.Name %> (<%= wh.Code %>)</option>
+                                    <% }); %>
+                                </select>
+                            </div>
+
                             <!-- File Upload -->
                             <div class="upload-zone mb-4" id="dropZone">
                                 <div class="upload-icon">
@@ -249,20 +263,6 @@
                                         <i class="bi bi-x-lg"></i>
                                     </button>
                                 </div>
-                            </div>
-
-                            <!-- Warehouse Selection -->
-                            <div class="warehouse-select mb-4">
-                                <div class="warehouse-label">
-                                    <i class="bi bi-building"></i>
-                                    Chọn kho xuất hàng
-                                </div>
-                                <select name="warehouseId" class="form-select" required id="warehouseSelect">
-                                    <option value="">-- Chọn kho --</option>
-                                    <% warehouses.forEach(function(wh) { %>
-                                        <option value="<%= wh.Id %>"><%= wh.Name %> (<%= wh.Code %>)</option>
-                                    <% }); %>
-                                </select>
                             </div>
 
                             <!-- Submit Button -->
