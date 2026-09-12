@@ -240,6 +240,66 @@
             padding: 0.75rem 1rem;
             margin-top: 1rem;
         }
+
+        /* Smooth search animation */
+        .table tbody tr {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .table tbody tr.hidden-row {
+            opacity: 0;
+            transform: translateY(-10px);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        /* Pagination styles */
+        .pagination-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1.25rem;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .pagination-info {
+            color: var(--gray-500);
+            font-size: 0.875rem;
+            margin-right: 1rem;
+        }
+
+        .page-btn {
+            padding: 0.5rem 0.875rem;
+            border: 1px solid var(--gray-200);
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+
+        .page-btn:hover:not(:disabled) {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .page-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .page-btn.active:hover {
+            background: var(--primary-dark);
+        }
     </style>
 </head>
 <body>
@@ -434,6 +494,17 @@
                             </tbody>
                         </table>
                     </div>
+                    <!-- Pagination -->
+                    <div class="pagination-container" id="paginationContainer">
+                        <span class="pagination-info" id="paginationInfo">Trang 1/1</span>
+                        <button class="page-btn" id="prevPage" onclick="changePage(-1)" disabled>
+                            <i class="bi bi-chevron-left"></i>
+                        </button>
+                        <div id="pageButtons"></div>
+                        <button class="page-btn" id="nextPage" onclick="changePage(1)">
+                            <i class="bi bi-chevron-right"></i>
+                        </button>
+                    </div>
                 <% } else { %>
                     <div class="empty-state">
                         <i class="bi bi-inbox"></i>
@@ -510,37 +581,126 @@
             window.history.replaceState({}, '', '/mapping');
         }
 
-        // Search filter
+        // Pagination & Search
+        const ROWS_PER_PAGE = 20;
+        let currentPage = 1;
+        let filteredRows = [];
+        const allRows = Array.from(document.querySelectorAll('tbody tr'));
+        const totalPages = Math.ceil(allRows.length / ROWS_PER_PAGE);
         const searchInput = document.getElementById('searchInput');
         const mappingCount = document.getElementById('mappingCount');
-        const totalMappings = '<%= mappings.length %>';
+        const totalMappings = allRows.length;
 
-        searchInput.addEventListener('input', function() {
-            const keyword = this.value.toLowerCase().trim();
-            let visibleCount = 0;
-            
-            document.querySelectorAll('tbody tr').forEach(row => {
+        function getFilteredRows() {
+            const keyword = searchInput.value.toLowerCase().trim();
+            if (!keyword) return allRows;
+            return allRows.filter(row => {
                 const badges = row.querySelectorAll('.code-badge');
                 const child = badges[0]?.textContent.toLowerCase() || '';
                 const parent = badges[1]?.textContent.toLowerCase() || '';
-                const match = !keyword || child.includes(keyword) || parent.includes(keyword);
-                row.style.display = match ? '' : 'none';
-                if (match) visibleCount++;
+                return child.includes(keyword) || parent.includes(keyword);
+            });
+        }
+
+        function renderPage() {
+            filteredRows = getFilteredRows();
+            const filteredTotal = Math.ceil(filteredRows.length / ROWS_PER_PAGE);
+            const page = Math.min(currentPage, filteredTotal || 1);
+            if (page !== currentPage) currentPage = page;
+
+            const start = (currentPage - 1) * ROWS_PER_PAGE;
+            const end = start + ROWS_PER_PAGE;
+            const visibleSet = new Set(filteredRows.slice(start, end));
+
+            allRows.forEach(row => {
+                if (visibleSet.has(row)) {
+                    row.classList.remove('hidden-row');
+                    row.style.display = '';
+                } else {
+                    row.classList.add('hidden-row');
+                    setTimeout(() => {
+                        if (row.classList.contains('hidden-row')) {
+                            row.style.display = 'none';
+                        }
+                    }, 200);
+                }
             });
 
+            // Update count badge
+            const keyword = searchInput.value.toLowerCase().trim();
             if (keyword) {
-                mappingCount.textContent = `${visibleCount}/${totalMappings} bản ghi`;
-                mappingCount.className = 'badge rounded-pill ' + (visibleCount > 0 ? 'bg-warning' : 'bg-danger');
+                mappingCount.textContent = `${filteredRows.length}/${totalMappings} bản ghi`;
+                mappingCount.className = 'badge rounded-pill ' + (filteredRows.length > 0 ? 'bg-warning' : 'bg-danger');
             } else {
                 mappingCount.textContent = `${totalMappings} bản ghi`;
                 mappingCount.className = 'badge bg-primary rounded-pill';
             }
+
+            renderPagination(filteredTotal);
+        }
+
+        function renderPagination(total) {
+            const info = document.getElementById('paginationInfo');
+            const prevBtn = document.getElementById('prevPage');
+            const nextBtn = document.getElementById('nextPage');
+            const btnContainer = document.getElementById('pageButtons');
+
+            if (total <= 1) {
+                document.getElementById('paginationContainer').style.display = 'none';
+                return;
+            }
+            document.getElementById('paginationContainer').style.display = 'flex';
+
+            info.textContent = `Trang ${currentPage}/${total}`;
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === total;
+
+            let html = '';
+            const maxShow = 5;
+            let startPage = Math.max(1, currentPage - Math.floor(maxShow / 2));
+            let endPage = Math.min(total, startPage + maxShow - 1);
+            if (endPage - startPage < maxShow - 1) startPage = Math.max(1, endPage - maxShow + 1);
+
+            if (startPage > 1) {
+                html += `<button class="page-btn" onclick="goToPage(1)">1</button>`;
+                if (startPage > 2) html += `<span class="page-btn" style="border:none;cursor:default;">...</span>`;
+            }
+            for (let i = startPage; i <= endPage; i++) {
+                html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+            }
+            if (endPage < total) {
+                if (endPage < total - 1) html += `<span class="page-btn" style="border:none;cursor:default;">...</span>`;
+                html += `<button class="page-btn" onclick="goToPage(${total})">${total}</button>`;
+            }
+            btnContainer.innerHTML = html;
+        }
+
+        function changePage(delta) {
+            const filteredTotal = Math.ceil(getFilteredRows().length / ROWS_PER_PAGE);
+            const newPage = currentPage + delta;
+            if (newPage < 1 || newPage > filteredTotal) return;
+            currentPage = newPage;
+            renderPage();
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderPage();
+        }
+
+        searchInput.addEventListener('input', function() {
+            currentPage = 1;
+            renderPage();
         });
 
         function clearSearch() {
             searchInput.value = '';
-            searchInput.dispatchEvent(new Event('input'));
+            currentPage = 1;
+            renderPage();
         }
+
+        // Initial render
+        renderPage();
     </script>
 </body>
 </html>
