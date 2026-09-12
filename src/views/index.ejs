@@ -4,38 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang chủ</title>
+    <meta name="description" content="Xử lý và xuất file đơn hàng Haravan">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="/enterprise.css">
-    <style>
-        .page-header { text-align: center; padding: 0.75rem 0; }
-        .page-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; }
-        .navbar-brand { font-weight: 700; font-size: 1.125rem; letter-spacing: -0.5px; }
-        .warehouse-select {
-            background: var(--gray-800);
-            border: 1px solid var(--gray-600);
-            border-radius: 10px;
-            padding: 1rem;
-        }
-        .warehouse-label {
-            display: flex; align-items: center;
-            font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem;
-        }
-        .warehouse-label i { font-size: 1.25rem; color: var(--primary); margin-right: 0.5rem; }
-        .file-info {
-            background: var(--gray-800); border: 1px solid var(--gray-600);
-            border-radius: 8px; padding: 0.75rem 1rem; margin-top: 0.75rem; display: none;
-        }
-        .file-info.show { display: block; }
-        .file-name { font-weight: 500; word-break: break-all; }
-        #removeFile { padding: 0.25rem 0.5rem; }
-    </style>
 </head>
 <body>
-    <nav class="navbar navbar-dark">
+    <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <i class="bi bi-box-seam"></i>
+                <img src="https://app.hstatic.net/smes/uploads/63a4f573-85d8-4bc4-bf83-8b66b14ddc62.png" alt="Logo" height="32">
+                <span>Inbound WMS</span>
             </a>
             <div class="d-flex align-items-center">
                 <a href="/" class="btn btn-light btn-sm me-2">
@@ -48,10 +27,9 @@
         </div>
     </nav>
 
-    <div class="container flex-grow-1 d-flex flex-column justify-content-center">
-
-        <div class="row justify-content-center flex-grow-0">
-            <div class="col-lg-8">
+    <main class="container flex-grow-1 d-flex flex-column justify-content-center py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-9 col-xl-8">
                 <div class="card">
                     <div class="card-header">
                         <h6 class="mb-0"><i class="bi bi-cloud-upload me-2"></i>Tải file lên</h6>
@@ -72,11 +50,11 @@
                             </div>
 
                             <div class="upload-zone mb-3" id="dropZone">
-                                <div class="upload-icon" style="font-size:2.5rem;color:var(--primary);margin-bottom:0.75rem;">
+                                <div class="upload-icon">
                                     <i class="bi bi-file-earmark-excel"></i>
                                 </div>
-                                <h5 class="mb-2">File nhập hàng</h5>
-                                <p class="text-muted mb-3">Kéo thả file hoặc nhấn để chọn file</p>
+                                <h5>File nhập hàng</h5>
+                                <p>Kéo thả file hoặc nhấn để chọn file</p>
                                 <input type="file" name="bangFile" accept=".xlsx" required id="fileInput" style="display:none;">
                                 <div class="file-info" id="fileInfo">
                                     <i class="bi bi-file-earmark-excel text-success me-2"></i>
@@ -95,7 +73,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

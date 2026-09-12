@@ -7,36 +7,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="/enterprise.css">
-    <style>
-        .page-header { margin-bottom: 1rem; }
-        .page-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.125rem; }
-        .stat-icon {
-            width: 36px; height: 36px; border-radius: 10px;
-            display: inline-flex; align-items: center; justify-content: center;
-            font-size: 1.25rem; margin-bottom: 0.5rem;
-        }
-        .stat-icon.primary { background-color: rgba(59,130,246,0.15); color: var(--primary); }
-        .stat-icon.success { background-color: rgba(34,197,94,0.15); color: var(--success); }
-        .stat-icon.info { background-color: rgba(8,145,178,0.15); color: #0891b2; }
-        .stat-icon.warning { background-color: rgba(245,158,11,0.15); color: var(--warning); }
-        .stat-number { font-size: 1.375rem; font-weight: 700; line-height: 1; }
-        .stat-label { font-size: 0.75rem; margin-top: 0.25rem; font-weight: 500; }
-        .badge { font-weight: 500; padding: 0.25rem 0.5rem; font-size: 0.7rem; }
-        .warehouse-badge {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white; padding: 0.5rem 1rem; border-radius: 8px;
-            display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem;
-        }
-        .table { margin-bottom: 0; }
-        .table tbody td { font-size: 0.8125rem; padding: 0.5rem 0.625rem; }
-        .card-header h6 { font-size: 0.9rem; }
-    </style>
 </head>
 <body>
-    <nav class="navbar navbar-dark">
+    <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <i class="bi bi-box-seam"></i>
+                <img src="https://app.hstatic.net/smes/uploads/63a4f573-85d8-4bc4-bf83-8b66b14ddc62.png" alt="Logo" height="32">
+                <span>Inbound WMS</span>
             </a>
             <div class="d-flex align-items-center">
                 <a href="/" class="btn btn-light btn-sm me-2">
@@ -49,48 +26,45 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="page-header d-flex justify-content-between align-items-center">
+    <main class="container py-4">
+        <div class="page-header d-flex justify-content-between align-items-end flex-wrap gap-2">
             <div>
                 <h1 class="page-title">Kết Quả Xử Lý</h1>
+                <% if (result.SelectedWarehouse) { %>
+                    <span class="warehouse-badge mt-1">
+                        <i class="bi bi-building"></i>
+                        <span><%= result.SelectedWarehouse.Name %> · <%= result.SelectedWarehouse.Code %></span>
+                    </span>
+                <% } %>
             </div>
             <a href="/" class="btn btn-outline-secondary btn-sm">
                 <i class="bi bi-arrow-left me-1"></i>Quay lại
             </a>
         </div>
 
-        <% if (result.SelectedWarehouse) { %>
-            <div class="mb-2">
-                <div class="warehouse-badge">
-                    <i class="bi bi-building"></i>
-                    <span><%= result.SelectedWarehouse.Name %> (<%= result.SelectedWarehouse.Code %>)</span>
-                </div>
-            </div>
-        <% } %>
-
-        <div class="row mb-3">
-            <div class="col-md-3 col-6 mb-2 mb-md-0">
+        <div class="row g-3 mb-4">
+            <div class="col-lg-3 col-6">
                 <div class="stat-card">
                     <div class="stat-icon primary"><i class="bi bi-list-ol"></i></div>
                     <div class="stat-number"><%= result.TotalRows %></div>
                     <div class="stat-label">Tổng dòng</div>
                 </div>
             </div>
-            <div class="col-md-3 col-6 mb-2 mb-md-0">
+            <div class="col-lg-3 col-6">
                 <div class="stat-card">
                     <div class="stat-icon success"><i class="bi bi-check-circle"></i></div>
                     <div class="stat-number"><%= result.SuccessRows %></div>
                     <div class="stat-label">Thành công</div>
                 </div>
             </div>
-            <div class="col-md-3 col-6 mb-2">
+            <div class="col-lg-3 col-6">
                 <div class="stat-card">
                     <div class="stat-icon info"><i class="bi bi-box-seam"></i></div>
                     <div class="stat-number"><%= result.TotalSlThung.toLocaleString() %></div>
                     <div class="stat-label">Tổng SL Thùng</div>
                 </div>
             </div>
-            <div class="col-md-3 col-6 mb-2">
+            <div class="col-lg-3 col-6">
                 <div class="stat-card">
                     <div class="stat-icon warning"><i class="bi bi-tag"></i></div>
                     <div class="stat-number"><%= result.TotalSlGoiLe.toLocaleString() %></div>
@@ -99,11 +73,27 @@
             </div>
         </div>
 
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+                <h6 class="mb-0"><i class="bi bi-download me-2"></i>Xuất File Haravan</h6>
+                <div class="d-flex flex-wrap gap-1">
+                    <% result.XeList.forEach(function(xe) { %>
+                        <a href="/download?xe=<%= encodeURIComponent(xe.XeName) %>" class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-car-front-fill me-1"></i><%= xe.XeName %>
+                        </a>
+                    <% }); %>
+                    <a href="/download" class="btn btn-success btn-sm">
+                        <i class="bi bi-download me-1"></i>Tải tất cả
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <% result.XeList.forEach(function(xe) { %>
-            <div class="card mb-3">
-                <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="card mb-4">
+                <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
                     <h6 class="mb-0">
-                        <i class="bi bi-truck me-2"></i><%= xe.XeName %>
+                        <i class="bi bi-car-front-fill me-2"></i><%= xe.XeName %>
                     </h6>
                     <div>
                         <span class="badge bg-info me-2">Thùng: <%= xe.TotalSlThung %></span>
@@ -111,19 +101,19 @@
                     </div>
                 </div>
                 <div class="card-body p-0">
-                    <div class="table-responsive" style="max-height:600px;overflow-y:auto;">
+                    <div class="table-responsive">
                         <table class="table table-hover mb-0">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Mã gốc</th>
                                     <th>Tên</th>
-                                    <th>QC</th>
-                                    <th>SL</th>
-                                    <th>%Thùng</th>
-                                    <th>%Lẻ</th>
-                                    <th>SL Thùng</th>
-                                    <th>SL Gói Lẻ</th>
+                                    <th class="text-end">QC</th>
+                                    <th class="text-end">SL</th>
+                                    <th class="text-end">%Thùng</th>
+                                    <th class="text-end">%Lẻ</th>
+                                    <th class="text-end">SL Thùng</th>
+                                    <th class="text-end">SL Gói Lẻ</th>
                                     <th>Mã final</th>
                                     <th>Trạng thái</th>
                                 </tr>
@@ -134,12 +124,12 @@
                                         <td class="text-muted"><%= index + 1 %></td>
                                         <td><span class="code-badge"><%= item.Sku %></span></td>
                                         <td><%= item.Name %></td>
-                                        <td><%= Math.round(item.QuyCach) %></td>
-                                        <td><%= Math.round(item.SoLuong) %></td>
-                                        <td><%= item.ThungPercent %>%</td>
-                                        <td><%= item.LePercent %>%</td>
-                                        <td><strong><%= Math.round(item.SlThung) %></strong></td>
-                                        <td><strong class="text-primary"><%= Math.round(item.SlGoiLe) %></strong></td>
+                                        <td class="text-end"><%= Math.round(item.QuyCach) %></td>
+                                        <td class="text-end"><%= Math.round(item.SoLuong) %></td>
+                                        <td class="text-end text-muted"><%= item.ThungPercent %>%</td>
+                                        <td class="text-end text-muted"><%= item.LePercent %>%</td>
+                                        <td class="text-end"><strong><%= Math.round(item.SlThung) %></strong></td>
+                                        <td class="text-end"><strong class="text-primary"><%= Math.round(item.SlGoiLe) %></strong></td>
                                         <td><span class="code-badge"><%= item.FinalSku %></span></td>
                                         <td>
                                             <% if (item.Is3N && item.HasMapping) { %>
@@ -158,7 +148,7 @@
                 </div>
             </div>
         <% }); %>
-    </div>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

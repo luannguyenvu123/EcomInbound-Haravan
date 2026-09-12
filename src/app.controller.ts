@@ -234,4 +234,25 @@ export class AppController {
       res.redirect('/');
     }
   }
+
+  @Get('download')
+  downloadFile(@Query('xe') xeName: string, @Res() res: Response) {
+    if (!this.lastResult) {
+      res.redirect('/');
+      return;
+    }
+
+    const buffer = this.excelService.generateHaravanFile(this.lastResult, xeName);
+    const warehouseCode = this.lastResult.SelectedWarehouse?.Code || 'All';
+    const fileName = xeName
+      ? `Haravan_${warehouseCode}_${xeName}_${Date.now()}.xlsx`
+      : `Haravan_${warehouseCode}_All_${Date.now()}.xlsx`;
+
+    res.set({
+      'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      'Content-Disposition': `attachment; filename="${fileName}"`,
+    });
+
+    res.send(buffer);
+  }
 }
