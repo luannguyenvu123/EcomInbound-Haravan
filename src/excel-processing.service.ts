@@ -75,19 +75,24 @@ export class ExcelProcessingService {
     const sheet = workbook.Sheets[sheetName];
     const data = XLSX.utils.sheet_to_json(sheet, { header: 1 }) as any[][];
 
-    // Find all xe rows
+    // Find all xe/cont rows
     const xeRows: number[] = [];
     data.forEach((row, index) => {
       const col2 = row[1]?.toString().trim();
-      if (col2 && col2.toLowerCase().startsWith('xe')) {
+      if (col2 && (col2.toLowerCase().startsWith('xe') || col2.toLowerCase().startsWith('cont'))) {
         xeRows.push(index);
       }
     });
 
-    // Process each xe
+    // If no xe/cont rows found, treat all data as one group
+    if (xeRows.length === 0) {
+      xeRows.push(-1);
+    }
+
+    // Process each xe/cont
     for (let i = 0; i < xeRows.length; i++) {
       const xeRow = xeRows[i];
-      const xeName = data[xeRow][1]?.toString().trim() || `Xe ${i + 1}`;
+      const xeName = xeRow === -1 ? 'All' : (data[xeRow][1]?.toString().trim() || `Xe ${i + 1}`);
       const startRow = xeRow + 1;
       const endRow = (i + 1 < xeRows.length) ? xeRows[i + 1] - 1 : data.length - 1;
 
