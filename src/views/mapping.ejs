@@ -261,6 +261,9 @@
     </nav>
 
     <div class="container">
+        <!-- Toast Notification -->
+        <div id="toast-container" style="position: fixed; top: 80px; right: 20px; z-index: 9999;"></div>
+
         <!-- Page Header -->
         <div class="page-header">
             <h1 class="page-title">Quản Lý Mapping</h1>
@@ -472,6 +475,31 @@
                 }
             });
         });
+
+        // Toast notification
+        function showToast(message, type) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = `alert alert-${type} alert-dismissible fade show`;
+            toast.style.cssText = 'min-width: 300px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);';
+            toast.innerHTML = `
+                <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-triangle'} me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => toast.remove(), 5000);
+        }
+
+        // Check URL params
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('import') === 'success') {
+            showToast(`Import thành công! Đã thêm ${params.get('count') || ''} mapping.`, 'success');
+            window.history.replaceState({}, '', '/mapping');
+        } else if (params.get('import') === 'error') {
+            showToast('Import thất bại! Vui lòng kiểm tra lại file.', 'danger');
+            window.history.replaceState({}, '', '/mapping');
+        }
     </script>
 </body>
 </html>

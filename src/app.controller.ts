@@ -130,14 +130,14 @@ export class AppController {
         fs.unlinkSync(file.path);
       }
       
-      res.redirect('/mapping');
+      res.redirect(`/mapping?import=success&count=${addedCount}`);
     } catch (error) {
       console.error('Import error:', error);
       // Delete uploaded file on error
       if (file.path && fs.existsSync(file.path)) {
         fs.unlinkSync(file.path);
       }
-      res.redirect('/mapping');
+      res.redirect('/mapping?import=error');
     }
   }
 
