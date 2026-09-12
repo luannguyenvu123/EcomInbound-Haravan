@@ -363,7 +363,16 @@
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h6 class="mb-0"><i class="bi bi-table me-2"></i>Danh sách Mapping</h6>
-                <span class="badge bg-primary rounded-pill"><%= mappings.length %> bản ghi</span>
+                <div class="d-flex align-items-center gap-2">
+                    <div class="input-group" style="width: 280px;">
+                        <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                        <input type="text" id="searchInput" class="form-control" placeholder="Tìm mã con, mã cha...">
+                        <button class="btn btn-outline-secondary" type="button" onclick="clearSearch()" title="Xóa tìm kiếm">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                    <span class="badge bg-primary rounded-pill" id="mappingCount"><%= mappings.length %> bản ghi</span>
+                </div>
             </div>
             <div class="card-body p-0">
                 <% if (mappings.length > 0) { %>
@@ -499,6 +508,38 @@
         } else if (params.get('import') === 'error') {
             showToast('Import thất bại! Vui lòng kiểm tra lại file.', 'danger');
             window.history.replaceState({}, '', '/mapping');
+        }
+
+        // Search filter
+        const searchInput = document.getElementById('searchInput');
+        const mappingCount = document.getElementById('mappingCount');
+        const totalMappings = '<%= mappings.length %>';
+
+        searchInput.addEventListener('input', function() {
+            const keyword = this.value.toLowerCase().trim();
+            let visibleCount = 0;
+            
+            document.querySelectorAll('tbody tr').forEach(row => {
+                const badges = row.querySelectorAll('.code-badge');
+                const child = badges[0]?.textContent.toLowerCase() || '';
+                const parent = badges[1]?.textContent.toLowerCase() || '';
+                const match = !keyword || child.includes(keyword) || parent.includes(keyword);
+                row.style.display = match ? '' : 'none';
+                if (match) visibleCount++;
+            });
+
+            if (keyword) {
+                mappingCount.textContent = `${visibleCount}/${totalMappings} bản ghi`;
+                mappingCount.className = 'badge rounded-pill ' + (visibleCount > 0 ? 'bg-warning' : 'bg-danger');
+            } else {
+                mappingCount.textContent = `${totalMappings} bản ghi`;
+                mappingCount.className = 'badge bg-primary rounded-pill';
+            }
+        });
+
+        function clearSearch() {
+            searchInput.value = '';
+            searchInput.dispatchEvent(new Event('input'));
         }
     </script>
 </body>
