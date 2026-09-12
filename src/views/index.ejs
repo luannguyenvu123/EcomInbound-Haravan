@@ -263,11 +263,6 @@
                                         <option value="<%= wh.Id %>"><%= wh.Name %> (<%= wh.Code %>)</option>
                                     <% }); %>
                                 </select>
-                                
-                                <div class="detected-badge" id="detectedBadge" style="display: none;">
-                                    <i class="bi bi-check-circle"></i>
-                                    <span>Đã detect: <strong id="detectedWarehouseName"></strong></span>
-                                </div>
                             </div>
 
                             <!-- Submit Button -->
@@ -289,10 +284,7 @@
         const fileName = document.getElementById('fileName');
         const removeFile = document.getElementById('removeFile');
         const warehouseSelect = document.getElementById('warehouseSelect');
-        const detectedBadge = document.getElementById('detectedBadge');
-        const detectedWarehouseName = document.getElementById('detectedWarehouseName');
         const submitBtn = document.getElementById('submitBtn');
-        let detectedWarehouseId = null;
 
         // Click to upload
         dropZone.addEventListener('click', function(e) {
@@ -333,8 +325,6 @@
             e.stopPropagation();
             fileInput.value = '';
             fileInfo.classList.remove('show');
-            detectedBadge.style.display = 'none';
-            detectedWarehouseId = null;
             submitBtn.disabled = true;
         });
 
@@ -350,31 +340,6 @@
             fileName.textContent = file.name;
             fileInfo.classList.add('show');
             submitBtn.disabled = false;
-            
-            // Detect warehouse from filename
-            try {
-                const response = await fetch('/detect-warehouse', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ filename: file.name })
-                });
-                
-                const data = await response.json();
-                
-                if (data.detected && data.warehouse) {
-                    warehouseSelect.value = data.warehouse.Id;
-                    detectedWarehouseName.textContent = data.warehouse.Name + ' (' + data.warehouse.Code + ')';
-                    detectedBadge.style.display = 'inline-flex';
-                    detectedWarehouseId = data.warehouse.Id;
-                } else {
-                    detectedBadge.style.display = 'none';
-                    detectedWarehouseId = null;
-                }
-            } catch (error) {
-                console.error('Error detecting warehouse:', error);
-            }
         }
 
         // Form validation
@@ -390,14 +355,6 @@
                 alert('Vui lòng chọn kho xuất hàng!');
                 warehouseSelect.focus();
                 return;
-            }
-
-            if (detectedWarehouseId && warehouseSelect.value !== detectedWarehouseId.toString()) {
-                e.preventDefault();
-                const confirmed = confirm('Kho bạn chọn không khớp với file!\n\nBạn có chắc chắn muốn tiếp tục không?');
-                if (!confirmed) {
-                    warehouseSelect.focus();
-                }
             }
         });
     </script>
