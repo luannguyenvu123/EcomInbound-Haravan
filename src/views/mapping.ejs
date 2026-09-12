@@ -418,7 +418,6 @@
                         <table id="mappingTable" class="table table-hover mb-0" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 60px;">#</th>
                                     <th>Mã con</th>
                                     <th>Mã cha</th>
                                     <th style="width: 160px;">Thao tác</th>
@@ -427,7 +426,6 @@
                             <tbody>
                                 <% mappings.forEach(function(item, index) { %>
                                     <tr id="row-<%= index %>">
-                                        <td class="text-muted"><%= index + 1 %></td>
                                         <td>
                                             <span class="view-mode"><span class="code-badge"><%= item.Child %></span></span>
                                             <input type="text" name="newChild" class="form-control form-control-sm edit-mode" value="<%= item.Child %>" style="display:none;">
@@ -570,9 +568,9 @@
                 },
                 pageLength: 20,
                 lengthMenu: [10, 20, 50, 100],
-                order: [[1, 'asc']],
+                order: [[0, 'asc']],
                 columnDefs: [
-                    { orderable: false, targets: [0, 3] }
+                    { orderable: false, targets: [2] }
                 ],
                 dom: '<"row"<"col-sm-6"l><"col-sm-6"f>>rtip'
             });
