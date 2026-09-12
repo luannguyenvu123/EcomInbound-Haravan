@@ -28,7 +28,10 @@
             background-color: var(--gray-50);
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             color: var(--gray-800);
-            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
         }
 
         .navbar {
@@ -97,7 +100,7 @@
 
         .page-header {
             text-align: center;
-            padding: 1rem 0;
+            padding: 0.75rem 0;
         }
 
         .page-title {
@@ -206,7 +209,7 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-dark mb-3">
+    <nav class="navbar navbar-dark">
         <div class="container">
                 <a class="navbar-brand" href="/">
                     <i class="bi bi-box-seam me-2"></i>Inbound
@@ -222,13 +225,13 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container flex-grow-1 d-flex flex-column justify-content-center">
         <!-- Page Header -->
         <div class="page-header">
             <h1 class="page-title">Xuất File Haravan</h1>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center flex-grow-0">
             <div class="col-lg-8">
                 <div class="card">
                     <div class="card-header">
