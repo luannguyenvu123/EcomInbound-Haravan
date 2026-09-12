@@ -243,14 +243,21 @@
 
         /* Smooth search animation */
         .table tbody tr {
-            transition: opacity 0.2s ease, transform 0.2s ease;
+            transition: opacity 0.25s ease, max-height 0.25s ease;
+            max-height: 60px;
+            overflow: hidden;
         }
 
         .table tbody tr.hidden-row {
             opacity: 0;
-            transform: translateY(-10px);
-            position: absolute;
-            pointer-events: none;
+            max-height: 0;
+            padding: 0;
+            border: none;
+        }
+
+        .table tbody tr.hidden-row td {
+            padding: 0;
+            height: 0;
         }
 
         /* Pagination styles */
@@ -618,11 +625,6 @@
                     row.style.display = '';
                 } else {
                     row.classList.add('hidden-row');
-                    setTimeout(() => {
-                        if (row.classList.contains('hidden-row')) {
-                            row.style.display = 'none';
-                        }
-                    }, 200);
                 }
             });
 
