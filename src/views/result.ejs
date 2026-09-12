@@ -30,30 +30,32 @@
             background-color: var(--gray-50);
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             color: var(--gray-800);
+            overflow: hidden;
         }
 
         .navbar {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 0.5rem 0;
         }
 
         .navbar-brand {
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             letter-spacing: -0.5px;
         }
 
         .card {
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
         }
 
         .card-header {
             background-color: white;
             border-bottom: 1px solid var(--gray-100);
-            border-radius: 12px 12px 0 0 !important;
-            padding: 1rem 1.25rem;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 0.75rem 1rem;
         }
 
         .btn {
@@ -81,32 +83,33 @@
             border-bottom: 2px solid var(--gray-200);
             font-weight: 600;
             color: var(--gray-600);
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            padding: 0.75rem;
+            padding: 0.5rem 0.625rem;
         }
 
         .table tbody td {
-            padding: 0.75rem;
+            padding: 0.5rem 0.625rem;
             vertical-align: middle;
             border-bottom: 1px solid var(--gray-100);
+            font-size: 0.8125rem;
         }
 
         .code-badge {
             font-family: 'Consolas', 'Monaco', monospace;
             background-color: var(--gray-100);
             color: var(--gray-700);
-            padding: 0.25rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.8125rem;
+            padding: 0.125rem 0.375rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
             font-weight: 500;
         }
 
         .stat-card {
             background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 10px;
+            padding: 1rem;
             text-align: center;
             border: 1px solid var(--gray-100);
             transition: transform 0.2s ease;
@@ -117,14 +120,14 @@
         }
 
         .stat-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
         }
 
         .stat-icon.primary {
@@ -148,22 +151,23 @@
         }
 
         .stat-number {
-            font-size: 1.75rem;
+            font-size: 1.375rem;
             font-weight: 700;
             color: var(--gray-900);
             line-height: 1;
         }
 
         .stat-label {
-            font-size: 0.8125rem;
+            font-size: 0.75rem;
             color: var(--gray-500);
-            margin-top: 0.5rem;
+            margin-top: 0.25rem;
             font-weight: 500;
         }
 
         .badge {
             font-weight: 500;
-            padding: 0.375rem 0.625rem;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.7rem;
         }
 
         .badge-success {
@@ -182,35 +186,36 @@
         .warehouse-badge {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 0.75rem 1.25rem;
+            padding: 0.5rem 1rem;
             border-radius: 8px;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: 0.875rem;
         }
 
         .page-header {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .page-title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--gray-900);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.125rem;
         }
 
         .download-section {
             background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
             border: 1px solid var(--gray-200);
-            border-radius: 12px;
-            padding: 1rem;
+            border-radius: 10px;
+            padding: 0.75rem;
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-dark mb-4">
+    <nav class="navbar navbar-dark mb-3">
         <div class="container">
                 <a class="navbar-brand" href="/">
                     <i class="bi bi-box-seam me-2"></i>Inbound
@@ -240,7 +245,7 @@
 
         <!-- Warehouse Info -->
         <% if (result.SelectedWarehouse) { %>
-            <div class="mb-4">
+            <div class="mb-2">
                 <div class="warehouse-badge">
                     <i class="bi bi-building"></i>
                     <span><%= result.SelectedWarehouse.Name %> (<%= result.SelectedWarehouse.Code %>)</span>
@@ -249,8 +254,8 @@
         <% } %>
 
         <!-- Stats -->
-        <div class="row mb-4">
-            <div class="col-md-3 col-6 mb-3 mb-md-0">
+        <div class="row mb-3">
+            <div class="col-md-3 col-6 mb-2 mb-md-0">
                 <div class="stat-card">
                     <div class="stat-icon primary">
                         <i class="bi bi-list-ol"></i>
@@ -259,7 +264,7 @@
                     <div class="stat-label">Tổng dòng</div>
                 </div>
             </div>
-            <div class="col-md-3 col-6 mb-3 mb-md-0">
+            <div class="col-md-3 col-6 mb-2 mb-md-0">
                 <div class="stat-card">
                     <div class="stat-icon success">
                         <i class="bi bi-check-circle"></i>
@@ -268,7 +273,7 @@
                     <div class="stat-label">Thành công</div>
                 </div>
             </div>
-            <div class="col-md-3 col-6">
+            <div class="col-md-3 col-6 mb-2">
                 <div class="stat-card">
                     <div class="stat-icon info">
                         <i class="bi bi-box-seam"></i>
@@ -277,7 +282,7 @@
                     <div class="stat-label">Tổng SL Thùng</div>
                 </div>
             </div>
-            <div class="col-md-3 col-6">
+            <div class="col-md-3 col-6 mb-2">
                 <div class="stat-card">
                     <div class="stat-icon warning">
                         <i class="bi bi-tag"></i>
@@ -288,29 +293,9 @@
             </div>
         </div>
 
-        <!-- Download Section -->
-        <div class="download-section mb-4">
-            <div class="d-flex align-items-center justify-content-between">
-                <div>
-                    <h6 class="mb-1"><i class="bi bi-download me-2"></i>Xuất File Haravan</h6>
-                    <small class="text-muted">Tải file theo từng xe hoặc xuất toàn bộ</small>
-                </div>
-                <div>
-                    <% result.XeList.forEach(function(xe) { %>
-                        <a href="/download?xe=<%= encodeURIComponent(xe.XeName) %>" class="btn btn-outline-primary btn-sm me-1">
-                            <i class="bi bi-file-earmark me-1"></i><%= xe.XeName %>
-                        </a>
-                    <% }); %>
-                    <a href="/download" class="btn btn-success">
-                        <i class="bi bi-download me-1"></i>Tải tất cả
-                    </a>
-                </div>
-            </div>
-        </div>
-
         <!-- Xe Sections -->
         <% result.XeList.forEach(function(xe) { %>
-            <div class="card mb-4">
+            <div class="card mb-3">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h6 class="mb-0">
                         <i class="bi bi-truck me-2"></i><%= xe.XeName %>
